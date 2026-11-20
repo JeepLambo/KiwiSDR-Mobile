@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KiwiSDR Mobile</title>
+    <link rel="stylesheet" href="kiwisdr.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #111827;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        #top-bar {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            background-color: #1f2937;
+            gap: 8px;
+            z-index: 10;
+        }
+        #server-url {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #374151;
+            background-color: #111827;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+        }
+        #connect-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: none;
+            background-color: #10b981;
+            color: #000000;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        #receiver-frame {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background-color: #111827;
+        }
+    </style>
+</head>
+<body>
+    <div id="top-bar">
+        <input type="text" id="server-url" value="http://rx.kiwisdr.com" placeholder="Enter KiwiSDR Server URL or IP...">
+        <button id="connect-btn" onclick="connectReceiver()">Connect</button>
+    </div>
+    <iframe id="receiver-frame" src="http://rx.kiwisdr.com"></iframe>
+
+    <script src="kiwisdr.min.js"></script>
+    <script>
+        function connectReceiver() {
+            var url = document.getElementById('server-url').value.trim();
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'http://' + url;
+            }
+            document.getElementById('receiver-frame').src = url;
+        }
+    </script>
+</body>
+</html>

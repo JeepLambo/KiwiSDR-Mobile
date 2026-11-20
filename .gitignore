@@ -1,0 +1,13 @@
+# Android build outputs and caches
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+android/local.properties
+
+# IDE & OS
+.idea/
+.DS_Store
+Thumbs.db
