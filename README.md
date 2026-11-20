@@ -1,4 +1,4 @@
-# [App Name] 📻
+# KiwiSDR Mobile 📻
 
 A native Android client for connecting to and listening to [KiwiSDR](http://kiwisdr.com/) receivers around the world directly from your mobile device.
 
